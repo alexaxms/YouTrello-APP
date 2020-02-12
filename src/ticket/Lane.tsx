@@ -45,7 +45,7 @@ const Lane: React.FunctionComponent<IProps> = ({tickets, title}: IProps) => (
             {title}
         </TitleCard>
         <TicketsWrapper>
-            {tickets.map(ticket => <Ticket ticket={ticket}/>)}
+            {tickets.map(ticket => <Ticket key={ticket.id} ticket={ticket}/>)}
         </TicketsWrapper>
     </LaneWrapper>
 );

@@ -1,7 +1,8 @@
 import ITicket from "./ITicket.interface";
 
 const GetTicketMock: ITicket = {
-    title: 'Estamos Listos CSM',
+    id: 1,
+    title: 'Estamos Listos',
     description: 'Listos'
 };
 

@@ -1,0 +1,9 @@
+enum TicketActionTypes {
+    SET_TICKET           = 'SET_TICKET',
+    SEARCH_TICKETS       = 'SEARCH_TICKETS',
+    GET_TICKETS_START    = 'GET_TICKETS_START',
+    GET_TICKETS_SUCCESS  = 'GET_TICKETS_SUCCESS',
+    GET_TICKETS_FAILURE  = 'GET_TICKETS_FAILURE'
+}
+
+export default TicketActionTypes;
