@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import ITicket from "./data/ITicket.interface";
-import Ticket from "./Ticket";
+import ILane from "./data/ILane.interface";
+import TicketContainer from "../ticket/TicketContainer";
 
 interface IProps {
-    tickets: ITicket[]
-    title: string
+    lane: ILane
 }
 
 const LaneWrapper = styled.div`
@@ -39,14 +38,12 @@ const Alert = styled.div`
   text-align: center;
 `;
 
-const Lane: React.FunctionComponent<IProps> = ({tickets, title}: IProps) => (
+const Lane: React.FunctionComponent<IProps> = ({ lane }: IProps) => (
     <LaneWrapper>
         <TitleCard>
-            {title}
+            {lane.name}
         </TitleCard>
-        <TicketsWrapper>
-            {tickets.map(ticket => <Ticket key={ticket.id} ticket={ticket}/>)}
-        </TicketsWrapper>
+        <TicketContainer lane_id={lane.id} />
     </LaneWrapper>
 );
 

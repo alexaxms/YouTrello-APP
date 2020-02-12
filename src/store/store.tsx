@@ -16,6 +16,8 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import IAppState from './IAppState.interface';
 import TicketReducer from '../ticket/reducer/TicketReducer';
 import {ticketsSaga} from '../ticket/sagas/Ticket';
+import LaneReducer from "../lane/reducer/LaneReducer";
+import {lanesSaga} from "../lane/sagas/Lane";
 
 // Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -23,6 +25,7 @@ const sagaMiddleware = createSagaMiddleware();
 // Create the root reducer
 const rootReducer = combineReducers<IAppState>({
     ticketState: TicketReducer,
+    laneState: LaneReducer
 });
 
 // Create a configure store function of type `IAppState`
@@ -34,6 +37,7 @@ export default function configureStore(): Store<IAppState, any> {
     );
 
     sagaMiddleware.run(ticketsSaga);
+    sagaMiddleware.run(lanesSaga);
 
     return store;
 }
