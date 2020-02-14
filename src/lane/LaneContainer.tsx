@@ -20,5 +20,4 @@ const LaneContainer = () => {
 };
 
 
-// Connect the app aware container to the store and reducers
 export default LaneContainer;
