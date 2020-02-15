@@ -11,7 +11,7 @@ describe('getTickets', () => {
 
     describe('getTickets', () => {
         it('httpClient is called as expected', () => {
-            getTicketsFromApi();
+            getTicketsFromApi(1);
             expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/boards/1/lanes/1/tickets');
         });
     });
