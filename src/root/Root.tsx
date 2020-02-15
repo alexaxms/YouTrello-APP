@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const Root: React.SFC<IProps> = ({store}) => (
-     <Profiler id={"id"} onRender={()=> console.log('Carlitos')}>
+     <Profiler id={"id"} onRender={()=> console.log('Renderizando')}>
          <Provider store={store}>
              <App/>
          </Provider>

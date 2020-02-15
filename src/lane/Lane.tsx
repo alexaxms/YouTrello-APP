@@ -30,14 +30,6 @@ const TitleCard = styled.div`
   }
 `;
 
-const TicketsWrapper = styled.div`
-  padding: 0%;
-`;
-
-const Alert = styled.div`
-  text-align: center;
-`;
-
 const Lane: React.FunctionComponent<IProps> = ({ lane }: IProps) => (
     <LaneWrapper>
         <TitleCard>
