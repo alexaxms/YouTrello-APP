@@ -6,9 +6,10 @@ import {
 } from './IGetTicketsActions.interface';
 import ITicket from '../data/ITicket.interface';
 
-export const getTicketsStartActionCreator = (): IGetTicketsStartAction => {
+export const getTicketsStartActionCreator = (lane_id: number): IGetTicketsStartAction => {
     return {
         type: TicketActionTypes.GET_TICKETS_START,
+        lane_id,
         isFetching: true,
     };
 };

@@ -22,7 +22,7 @@ const TicketContainer: React.FunctionComponent<IProps> = ({
                                                     isFetching
                                                 }) => {
     React.useEffect(() => {
-        getTickets();
+        getTickets(lane_id);
     }, [getTickets]);
 
     return (<>
@@ -47,7 +47,7 @@ const mapStateToProps = (store: IAppState) => {
 // Make functions available on props
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getTickets: () => dispatch(getTicketsStartActionCreator()),
+        getTickets: (lane_id: number) => dispatch(getTicketsStartActionCreator(lane_id)),
     }
 };
 

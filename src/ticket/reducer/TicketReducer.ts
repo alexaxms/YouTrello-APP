@@ -23,7 +23,7 @@ const TicketReducer: Reducer<ITicketState, TicketActions> = (
         case TicketActionTypes.GET_TICKETS_SUCCESS: {
             return {
                 ...state,
-                tickets: action.tickets,
+                tickets: state.tickets.concat(action.tickets),
                 isFetching: action.isFetching,
             };
         }

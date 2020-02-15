@@ -7,11 +7,12 @@ import {
 
 import TicketActionTypes from "../actions/TicketActionTypes.enum";
 import {getTicketsFailureActionCreator, getTicketsSuccessActionCreator} from "../actions/TicketActionCreators";
+import {IGetTicketsStartAction} from "../actions/IGetTicketsActions.interface";
 
 
-export function* getTicketsSaga(): any {
+export function* getTicketsSaga(action: IGetTicketsStartAction): any {
     try {
-        const response = yield call(getTicketsFromApi);
+        const response = yield call(getTicketsFromApi, action.lane_id);
         const tickets = response.data;
         yield put(getTicketsSuccessActionCreator(tickets))
     } catch (e) {

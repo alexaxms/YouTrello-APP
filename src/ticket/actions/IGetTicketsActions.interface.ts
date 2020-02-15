@@ -3,6 +3,7 @@ import TicketActionTypes from "./TicketActionTypes.enum";
 
 export interface IGetTicketsStartAction {
     type: TicketActionTypes.GET_TICKETS_START,
+    lane_id: number,
     isFetching: true,
 }
 export interface IGetTicketsSuccessAction {

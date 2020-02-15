@@ -1,7 +1,7 @@
 import {
     IGetTicketsStartAction,
     IGetTicketsSuccessAction,
-    IGetTicketsFailureAction
+    IGetTicketsFailureAction,
 } from './IGetTicketsActions.interface';
 
 type TicketActions =
