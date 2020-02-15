@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {
     getTicketsFromApi,
-    searchTicketsFromApi,
 } from './Api';
 
 // Tests
@@ -17,12 +16,4 @@ describe('getTickets', () => {
         });
     });
 
-    describe('searchTickets', () => {
-        const searchString = 'title';
-
-        it('httpClient is called as expected', () => {
-            searchTicketsFromApi(searchString);
-            expect(axios.get).toHaveBeenCalledWith(`http://localhost:3000/boards/1/lanes/1/tickets/?search=${searchString}`);
-        });
-    });
 });

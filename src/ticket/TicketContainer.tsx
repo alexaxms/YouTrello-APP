@@ -4,33 +4,25 @@ import Loader from "./Loader";
 import IAppState from "./store/IAppState.interface";
 import {
     getTicketsStartActionCreator,
-    searchTicketsActionCreator,
-    setTicketActionCreator
 } from "./actions/TicketActionCreators";
 import {connect} from "react-redux";
 import TicketList from "./TicketList";
 
 interface IProps {
     getTickets: Function,
-    setTicket: Function,
-    searchTickets: Function,
     lane_id: number,
-    ticket: any,
     tickets: ITicket[],
     isFetching: Boolean
 }
 
 const TicketContainer: React.FunctionComponent<IProps> = ({
                                                     getTickets,
-                                                    setTicket,
-                                                    searchTickets,
                                                     lane_id,
-                                                    ticket,
                                                     tickets,
                                                     isFetching
                                                 }) => {
     React.useEffect(() => {
-        getTickets();
+        getTickets(lane_id);
     }, [getTickets]);
 
     return (<>
@@ -47,7 +39,6 @@ const TicketContainer: React.FunctionComponent<IProps> = ({
 // Make data available on props
 const mapStateToProps = (store: IAppState) => {
     return {
-        ticket: store.ticketState.ticket,
         tickets: store.ticketState.tickets,
         isFetching: store.ticketState.isFetching,
     };
@@ -56,9 +47,7 @@ const mapStateToProps = (store: IAppState) => {
 // Make functions available on props
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getTickets: () => dispatch(getTicketsStartActionCreator()),
-        setTicket: (ticket: any) => dispatch(setTicketActionCreator(ticket)),
-        searchTickets: (term: string) => dispatch(searchTicketsActionCreator(term)),
+        getTickets: (lane_id: number) => dispatch(getTicketsStartActionCreator(lane_id)),
     }
 };
 
