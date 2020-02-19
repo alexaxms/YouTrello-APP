@@ -19,7 +19,7 @@ const LaneWrapper = styled.div`
   }
 `;
 
-const TitleCard = styled.div`
+export const TitleCard = styled.div`
   background: white;
   padding: 20px;
   border-radius: 20px;

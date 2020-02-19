@@ -1,15 +1,19 @@
-import React, {useState} from "react";
+import React from "react";
 import LaneList from "./LaneList";
-import {GetLanesMock} from "./data/GetLanesMock";
+import {useDispatch, useSelector} from "react-redux";
+import {getLanesStartActionCreator} from "./actions/LaneActionCreators";
+import Loader from "../ticket/Loader";
 
-
-const data = GetLanesMock();
 
 const LaneContainer = () => {
-    const [lanes, setLanes] = useState(data);
+    const dispatch = useDispatch();
+    const {lanes, isFetching} = useSelector((state: any) => state.laneState);
+    React.useEffect(() => {
+        dispatch(getLanesStartActionCreator());
+    }, [dispatch]);
     return (
         <>
-            {<LaneList lanes={lanes}/>}
+            {isFetching ? <Loader/> : <LaneList lanes={lanes}/>}
         </>
     );
 };

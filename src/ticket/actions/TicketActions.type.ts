@@ -1,12 +1,13 @@
 import {
     IGetTicketsStartAction,
     IGetTicketsSuccessAction,
-    IGetTicketsFailureAction,
+    IGetTicketsFailureAction, IAddTicketAction,
 } from './IGetTicketsActions.interface';
 
 type TicketActions =
     IGetTicketsStartAction
     | IGetTicketsSuccessAction
-    | IGetTicketsFailureAction;
+    | IGetTicketsFailureAction
+    | IAddTicketAction;
 
 export default TicketActions;

@@ -2,6 +2,8 @@ import * as React from "react";
 import {FormEvent, useState} from "react";
 import styled from "styled-components";
 import ITicket from "./data/ITicket.interface";
+import {useDispatch} from "react-redux";
+import {addTicketActionCreator} from "./actions/TicketActionCreators";
 
 const TicketWrapper = styled.div`
   background: white;
@@ -30,10 +32,11 @@ interface IProps {
 const TicketForm: React.FC<IProps> = ({lane_id}) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [ticket, setTicket] = useState<ITicket>({id: 1, description: "", title: "", lane_id: lane_id});
+    const dispatch = useDispatch();
     const handleOnSubmit = (e: FormEvent) => {
         e.preventDefault();
-        setTicket({id: 0, lane_id: lane_id, title: title, description: description})
+        const ticket: ITicket = ({id: 0, lane_id: lane_id, title: title, description: description});
+        dispatch(addTicketActionCreator(ticket));
     };
     return (
         <TicketWrapper>
@@ -47,7 +50,6 @@ const TicketForm: React.FC<IProps> = ({lane_id}) => {
                 }}/></Body>
                 <input hidden={true} type="submit" value="Submit"/>
             </form>
-            {JSON.stringify(ticket)}
         </TicketWrapper>
     );
 };

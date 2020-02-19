@@ -1,4 +1,4 @@
-import { Reducer } from 'redux';
+import {Reducer} from 'redux';
 
 import TicketActions from '../actions/TicketActions.type';
 import TicketActionTypes from '../actions/TicketActionTypes.enum';
@@ -14,6 +14,13 @@ const TicketReducer: Reducer<ITicketState, TicketActions> = (
     action
 ) => {
     switch (action.type) {
+        case "ADD_TICKET": {
+            const added_tickets = [...state.tickets, action.ticket];
+            return {
+                isFetching: false,
+                tickets: added_tickets,
+            }
+        }
         case TicketActionTypes.GET_TICKETS_START: {
             return {
                 ...state,

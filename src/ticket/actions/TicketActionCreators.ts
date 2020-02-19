@@ -2,7 +2,7 @@ import TicketActionTypes from './TicketActionTypes.enum';
 import {
     IGetTicketsStartAction,
     IGetTicketsSuccessAction,
-    IGetTicketsFailureAction,
+    IGetTicketsFailureAction, IAddTicketAction,
 } from './IGetTicketsActions.interface';
 import ITicket from '../data/ITicket.interface';
 
@@ -26,5 +26,13 @@ export const getTicketsFailureActionCreator = (): IGetTicketsFailureAction => {
     return {
         type: TicketActionTypes.GET_TICKETS_FAILURE,
         isFetching: false,
+    };
+};
+
+export const addTicketActionCreator = (ticket: ITicket): IAddTicketAction => {
+    return {
+        type: "ADD_TICKET",
+        isFetching: false,
+        ticket,
     };
 };

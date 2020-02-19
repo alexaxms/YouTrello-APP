@@ -10,8 +10,14 @@ export interface IGetTicketsSuccessAction {
     type: TicketActionTypes.GET_TICKETS_SUCCESS,
     tickets: ITicket[],
     isFetching: false,
+
 }
 export interface IGetTicketsFailureAction {
     type: TicketActionTypes.GET_TICKETS_FAILURE,
     isFetching: false,
+}
+export interface IAddTicketAction{
+    type: "ADD_TICKET",
+    isFetching: false,
+    ticket : ITicket,
 }
